@@ -102,6 +102,26 @@ type Transaction struct {
 	} `json:"score"`
 }
 
+type Info struct {
+	Emails []struct {
+		Primary bool   `json:"primary"`
+		Type    string `json:"type"`
+		Data    string `json:"data"`
+	} `json:"emails"`
+	Addresses []struct {
+		Street string `json:"street"`
+		City   string `json:"city"`
+		State  string `json:"state"`
+		Zip    string `json:"zip"`
+	} `json:"addresses"`
+	PhoneNumbers []struct {
+		Primary bool   `json:"primary"`
+		Type    string `json:"type"`
+		Data    string `json:"data"`
+	} `json:"phone_numbers"`
+	Names []string `json:"names"`
+}
+
 type mfaIntermediate struct {
 	AccessToken string      `json:"access_token"`
 	MFA         interface{} `json:"mfa"`
@@ -142,6 +162,7 @@ type postResponse struct {
 	BankAccountToken string        `json:"stripe_bank_account_token"`
 	MFA              string        `json:"mfa"`
 	Transactions     []Transaction `json:"transactions"`
+	Info             Info          `json:"info"`
 }
 
 type deleteResponse struct {

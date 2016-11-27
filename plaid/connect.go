@@ -138,7 +138,7 @@ func (c *Client) ConnectDelete(accessToken string) (deleteRes *deleteResponse, e
 	return c.deleteAndUnmarshal("/connect", bytes.NewReader(jsonText))
 }
 
-// ConnectOptions represents options associated with adding an Connect user.
+// ConnectOptions represents options associated with adding a Connect user.
 //
 // See https://plaid.com/docs/api/#add-user.
 type ConnectOptions struct {
